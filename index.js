@@ -138,7 +138,7 @@ Array.from(answerList).forEach(function(choice){
 
 //eventlisteners
 clickButton.addEventListener('click', getNext)
-//answerList.addEventListener('click', getAnswer)
+
 //functions
 function addCategory(){    
     const category = document.querySelector('#category')
@@ -185,8 +185,7 @@ function getNext(){
         addCategory(indexQuestion)        
         quizNumber()
     }
-    // e.target.classList.remove('correct_answer')
-    // e.target.classList.remove('incorrect_answer')
+    
     for (answer in answerList){
         answerList[answer].classList.remove('correct_answer', 'incorrect_answer')
     }   
@@ -215,12 +214,12 @@ function getAnswer(e){
     if (questions[indexQuestion].correct_answer === e.target.innerHTML){ 
         console.log('True')
         e.target.classList.add('correct_answer')
-        getScores()  
-                      
+        getScores()                             
     }
     else{
         console.log('False')
         e.target.classList.add('incorrect_answer')        
-    }    
+    }
+   
 }
 
