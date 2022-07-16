@@ -129,12 +129,16 @@ let scores = 0
 let quizNum = 1
 const scoreDisplay = document.querySelector('#scores')
 const clickButton = document.querySelector('.btn')
-const answerList1 = document.querySelector('.answer-options')
+const answerList = document.getElementsByClassName('option')
 
+
+Array.from(answerList).forEach(function(choice){
+    choice.addEventListener('click', getAnswer)
+})
 
 //eventlisteners
 clickButton.addEventListener('click', getNext)
-answerList1.addEventListener('click', getAnswer)
+//answerList.addEventListener('click', getAnswer)
 //functions
 function addCategory(){    
     const category = document.querySelector('#category')
@@ -161,10 +165,10 @@ function addCategory(){
     //     answerList.innerHTML = getAnswers[answer]        
     //     makeList.append(answerList)
     // } 
-    const optionOne = document.querySelector('.option1')  
-    const optionTwo = document.querySelector('.option2')  
-    const optionThree = document.querySelector('.option3')  
-    const optionFour = document.querySelector('.option4')
+    const optionOne = document.querySelector('#answer1')  
+    const optionTwo = document.querySelector('#answer2')  
+    const optionThree = document.querySelector('#answer3')  
+    const optionFour = document.querySelector('#answer4')
     
     optionOne.innerHTML = getAnswers[0]
     optionTwo.innerHTML = getAnswers[1]
@@ -178,12 +182,14 @@ addCategory()
 function getNext(){    
     if(indexQuestion<questions.length-1){
         indexQuestion++
-        addCategory(indexQuestion)
-        getScores()
+        addCategory(indexQuestion)        
         quizNumber()
     }
-    answerList.classList.remove('correct_answer')
-    answerList.classList.remove('incorrect_answer')
+    // e.target.classList.remove('correct_answer')
+    // e.target.classList.remove('incorrect_answer')
+    for (answer in answerList){
+        answerList[answer].classList.remove('correct_answer', 'incorrect_answer')
+    }   
 }
 
 function getScores(){
@@ -205,15 +211,16 @@ function quizNumber(){
     questionNumber.innerHTML = quizNum + "/10"  
 }
 
-function getAnswer(){ 
-    const answerList = document.querySelector('.answer-options').children
-    let indexAnswer = 1    
-    if (questions[indexQuestion].correct_answer === answerList[answer]){          
-        //answerList.classList.add('correct_answer')        
+function getAnswer(e){    
+    if (questions[indexQuestion].correct_answer === e.target.innerHTML){ 
+        console.log('True')
+        e.target.classList.add('correct_answer')
+        getScores()  
+                      
     }
     else{
-        //answerList.classList.add('incorrect_answer')
-    }  
-
+        console.log('False')
+        e.target.classList.add('incorrect_answer')        
+    }    
 }
 

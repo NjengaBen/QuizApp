@@ -68,9 +68,9 @@ h2{
     cursor: pointer;
 }
 
-/* .answer-options li:hover{
-    background-color: #d3d3d3;
-} */
+.answer-options li:hover{    
+    border-color:#3cb371;
+}
 
 .next{
     display: flex;
