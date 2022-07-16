@@ -145,8 +145,7 @@ function addCategory(){
     const type = document.querySelector('#type')
     const difficulty = document.querySelector('#difficulty')
     const quiz = document.querySelector('.card-quiz')
-    //const answers = document.querySelector('.card-answers')
-    //const makeList = document.querySelector('.answer-options')
+    
 
     category.innerHTML = 'Category: ' + questions[indexQuestion].category
     type.innerHTML = 'Type: ' + questions[indexQuestion].type
@@ -158,13 +157,7 @@ function addCategory(){
     const newArr = correctAnswer.concat(questions[indexQuestion].incorrect_answers)
     const getAnswers = newArr.sort((a,b) => 0.5 - Math.random()); 
    
-
-    // for (let answer in getAnswers){
-    //     const answerList = document.createElement('li')
-    //     answerList.classList.add('choices')
-    //     answerList.innerHTML = getAnswers[answer]        
-    //     makeList.append(answerList)
-    // } 
+   
     const optionOne = document.querySelector('#answer1')  
     const optionTwo = document.querySelector('#answer2')  
     const optionThree = document.querySelector('#answer3')  
