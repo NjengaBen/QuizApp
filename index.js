@@ -124,12 +124,13 @@ const questions = [
 
 
 //variables
-let indexQuestion = 0
+let indexQuestion = 1
 let scores = 0
 let quizNum = 1
 const scoreDisplay = document.querySelector('#scores')
 const clickButton = document.querySelector('.btn')
 const answerList = document.getElementsByClassName('option')
+console.log(questions.length)
 
 
 Array.from(answerList).forEach(function(choice){
@@ -173,19 +174,21 @@ addCategory()
 
 //get next set of questions
 function getNext(){    
-    if(indexQuestion<questions.length-1){
+    if(indexQuestion != questions.length-1){
         indexQuestion++
         addCategory(indexQuestion)        
         quizNumber()
+    } else{        
+        clickButton.classList.add('btnEnd')            
     }
-       
+    //remove the bg-color of list target   
     Array.from(answerList).forEach(function(choice){
         if (choice.classList.contains('correct_answer')){
             choice.classList.remove('correct_answer')
             
         }else{
             choice.classList.remove('incorrect_answer')
-        }
+        } 
     })
 }
 

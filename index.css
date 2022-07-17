@@ -90,6 +90,9 @@ h2{
 .btn:hover{
     background-color: #4fc584;
 }
+.btnEnd{    
+    display: none;
+}
 
 .correct_answer{
     background-color: #4fc584;
