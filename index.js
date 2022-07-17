@@ -178,10 +178,15 @@ function getNext(){
         addCategory(indexQuestion)        
         quizNumber()
     }
-    
-    for (answer in answerList){
-        answerList[answer].classList.remove('correct_answer', 'incorrect_answer')
-    }   
+       
+    Array.from(answerList).forEach(function(choice){
+        if (choice.classList.contains('correct_answer')){
+            choice.classList.remove('correct_answer')
+            
+        }else{
+            choice.classList.remove('incorrect_answer')
+        }
+    })
 }
 
 function getScores(){
