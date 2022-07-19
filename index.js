@@ -137,6 +137,7 @@ Array.from(answerList).forEach(function(choice){
     choice.addEventListener('click', getAnswer)
 })
 
+
 //eventlisteners
 clickButton.addEventListener('click', getNext)
 
@@ -200,7 +201,7 @@ function getScores(){
 
     //display scores
     scoreOutput.innerHTML = "Score: " + newScore
-    //console.log(newScore)
+    //console.log(newScore)    
 }
 
 function quizNumber(){
@@ -215,12 +216,11 @@ function getAnswer(e){
     if (questions[indexQuestion].correct_answer === e.target.innerHTML){ 
         console.log('True')
         e.target.classList.add('correct_answer')
-        getScores()                             
+        getScores()                                               
     }
     else{
         console.log('False')
         e.target.classList.add('incorrect_answer')        
-    }
-   
+    }   
 }
 
